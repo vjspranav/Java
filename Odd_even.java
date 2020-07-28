@@ -15,5 +15,6 @@ public class Odd_even
         {
             System.out.println("Number is odd");
         }
+        num1.close();
     }    
 }

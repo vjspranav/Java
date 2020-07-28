@@ -13,15 +13,17 @@ public class Average
         System.out.println("Average of 3 number is:-"+ avg);
         
         // User Input
-        Scanner sc1 = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        
         System.out.println("Enter 1st number :- ");
-        int a = sc1.nextInt();
-        Scanner sc2 = new Scanner(System.in);
+        int a = sc.nextInt();
         System.out.println("Enter 2nd number :- ");
-        int b = sc2.nextInt();
-        Scanner sc3 = new Scanner(System.in);
+        int b = sc.nextInt();
         System.out.println("Enter 3rd number :- ");
-        int c = sc3.nextInt();
+        int c = sc.nextInt();
+        
+        sc.close();
+
         avg= (a+b+c)/3f;
         System.out.println("Average is "+avg);
     }    

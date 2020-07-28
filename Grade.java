@@ -23,5 +23,6 @@ public class Grade
         {
             System.out.println("Fail");
         }
+        per.close();
     }    
 }

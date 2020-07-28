@@ -7,5 +7,6 @@ public class user_input
         System.out.println("Enter a number :- ");
         int a = sc.nextInt();
         System.out.println("a = "+a);
+        sc.close();
     }
 }
