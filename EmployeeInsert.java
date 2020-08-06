@@ -15,7 +15,7 @@ class Employee
          System.out.println("Id:- "+empId+" ; Name:- "+empName+" ; Experience in years:- "+empExperience);
     }  
 }
-public class EmployeeInsert 
+public class EmployeeInsert
 {
     public static void main(String args[])
     {  
