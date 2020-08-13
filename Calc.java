@@ -67,13 +67,13 @@ public class Calc
                 System.out.println("Enter 2 numbers:- ");
                 s4.first = sc.nextInt();
                 s4.second = sc.nextInt();
-                result = s4.first * s4.second;
-                System.out.printf("Division of the 2 numbers is:-\n"+result);
+                result = s4.first / s4.second;
+                System.out.printf("Division of the 2 numbers is:-\t"+result);
                 break;
 
             // operator doesn't match any case constant (+, -, *, /)
             default:
-                System.out.printf("Error! operator is not correct");
+                System.out.printf("Error! operator is not correct\n");
                 reader.close();
                 sc.close();
                 return;
