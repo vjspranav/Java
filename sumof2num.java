@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Add
+class add
 {
     void display(float a, float b)
     {
@@ -15,7 +15,7 @@ class Add
         System.out.println("Enter 2 number:- ");
         float a = sc.nextFloat();
         float b = sc.nextFloat();
-        Add ob = new Add();
+        add ob = new add();
         ob.display(a, b);
         sc.close();
     }

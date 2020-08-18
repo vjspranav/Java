@@ -1,31 +1,95 @@
-class ComplexNumber
+import java.util.Scanner;
+class ComplexNum
 {
-    double real, img;
-    
-    ComplexNumber()
+    private
+    double real,img;
+    public ComplexNum()
     {
         real=0;
         img=0;
     }
-
-    ComplexNumber(double r, double i)
+    public ComplexNum(double r , double i)
     {
-     this.real = r;
-     this.img = i;
+        real=r;
+        img=i;
     }
-     
-    public static ComplexNumber sum(ComplexNumber s1, ComplexNumber s2)
+    public void Addition(ComplexNum cn2)
     {
-         ComplexNumber tempe = new ComplexNumber(0, 0);
-         tempe.real = s1.real + s2.real;
-         tempe.img = s1.img + s2.img;
-         return tempe;
-     }
-     public static void main(String args[]) 
-     {
-         ComplexNumber s1 = new ComplexNumber(4, 5);
-         ComplexNumber s2 = new ComplexNumber(4, 3);
-         ComplexNumber tempe = sum(s1, s2);
-         System.out.printf("Sum is: "+ tempe.real+" + "+ tempe.img +"i");
-     }
- }
+        double rr,ii;
+        rr= real + cn2.real;
+        ii= img + cn2.img;
+        System.out.println("Addition of two complex number is "+rr+" + ("+ii+"i)");
+    }
+    public void Subtraction(ComplexNum cn2)
+    {
+        double rr,ii;
+        rr= real - cn2.real;
+        ii= img - cn2.img;
+        System.out.println("Subtraction of two complex number is "+rr+" + ("+ii+"i)");
+    }
+    public void Multiplication(ComplexNum cn2)
+    {
+        double rr,ii;
+        rr = ((real * cn2.real) - (img * cn2.img));
+        ii = ((img * cn2.real ) + (real * cn2.img));
+        System.out.println("Multiplication is "+String.format("%.2f",rr)+" + ("+String.format("%.2f",ii)+"i)");
+    }
+    public void Division(ComplexNum cn2)
+    {
+        double numeratorReal,numeratorComp,denominator;
+        numeratorReal = (real* cn2.real) - (img*(-1*(cn2.img)));
+        numeratorComp = (real* (-1*(cn2.img)) + (img * cn2.real));
+        denominator=  (cn2.real * cn2.real) - (cn2.img * (-1*(cn2.img)));
+        double resultReal = numeratorReal/denominator;
+        double resultComp = numeratorComp/denominator;
+        System.out.println("Division is "+String.format("%.2f",resultReal)+" + ("+String.format("%.2f",resultComp)+"i)");
+    }
+}
+public class CN 
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the real and Complex part of the first Complex number");
+        double r1 = sc.nextDouble();
+        double c1 = sc.nextDouble();
+        System.out.println("Enter the real and Complex part of the second Complex number");
+        double r2 = sc.nextDouble();
+        double c2 = sc.nextDouble();
+        ComplexNum cn1 = new ComplexNum(r1,c1);
+        ComplexNum cn2 = new ComplexNum(r2,c2);
+        char Selection;
+        do 
+        {
+            System.out.println("\n 1) Addition");
+            System.out.println("\n 2) Subtraction");
+            System.out.println("\n 3) Multiplication");
+            System.out.println("\n 4) Division");
+            System.out.println("\n 5) Exit");
+            Selection = sc.next().charAt(0);
+            switch (Selection)
+            {
+                case '1':
+                    cn1.Addition(cn2);
+                    break;
+                case '2':
+                    cn1.Subtraction(cn2);
+                    break;
+                case '3':
+                    cn1.Multiplication(cn2);
+                    break;
+                case '4':
+                    cn1.Division(cn2);
+                    break;
+                case '5' :
+                    System.out.println("Goodbye!!!");
+                    break;
+                default:
+                    System.out.println("Invalid Entry!!... Please Enter Again ");
+                    break;
+                }
+        }
+        while (Selection != '5' );
+        sc.close();
+    } 
+}
