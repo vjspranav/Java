@@ -12,14 +12,10 @@ class Accounts
 	private double deposit;
 	private double withdraw;
 
-	public void name()
+	public void newAccount()
 	{
 		System.out.print("Enter Name:- ");
-        name = sc.next();
-	}
-
-	public void accno()
-	{
+		name = sc.next();
 		System.out.print("Enter Account Number:- ");
         accno = sc.nextInt();
 	}
@@ -46,8 +42,14 @@ class Accounts
 	public void withdraw()
 	{
 		System.out.print("Enter the amount you want to withdraw:- ");
-        withdraw = sc.nextDouble();
-		balance = balance - withdraw;
+		withdraw = sc.nextDouble();
+		if (balance >= withdraw) 
+		{
+			balance = balance - withdraw;
+		} else 
+		{
+            System.out.println("You are trying to withdraw more money than you have in your account, please put a valid amount.");
+        }
 	}
 
 	public void getBalance()
@@ -61,8 +63,7 @@ public class Bank
 	public static void main(String [] args)
 	{
 		Accounts p1Savings = new Accounts();
-		p1Savings.name();
-		p1Savings.accno();
+		p1Savings.newAccount();
 		p1Savings.balance();
 		p1Savings.withdraw();
 		p1Savings.deposit();

@@ -1,5 +1,3 @@
-// Taken from https://www.includehelp.com/java-programs/banking-management-system.aspx
-
 import java.util.Scanner;
 
 class Bank {
