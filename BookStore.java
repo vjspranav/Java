@@ -4,18 +4,20 @@ class Publication
     int price;  
     String title; 
     int copies; 
+    String author;
     
     Scanner KB = new Scanner(System.in);
 
-    void Publication()
+    Publication()
+    {
+    }
+    
+    Publication(int p, String t, int c, String a)
     {   
-        Scanner emp = new Scanner(System.in);
-        System.out.print("Enter the Price of the book: ");
-        price = emp.nextInt();
-        System.out.print("Enter the Title of the book:  ");
-        title = emp.next();
-        System.out.print("Enter the number of copies you want to add in inventory: ");
-        copies = emp.nextInt();
+        price = p;
+        title = t;
+        copies = c;
+        author = a;
     }  
     
     void display()
@@ -23,6 +25,7 @@ class Publication
         System.out.println("Title of book: "+title);
         System.out.println("Price is: "+price);
         System.out.println("No of copies: "+copies);
+        System.out.println("No of copies: "+author);
     }
     
     //method to purchase books
@@ -56,17 +59,31 @@ class Publication
 }        
 public class BookStore {
     public static void main(String args[])
-    {  
+    {         
         Scanner KB = new Scanner(System.in);
-
+        
         //create initial inventory
         System.out.print("How Many books you want to add to inventory: ");
         int n = KB.nextInt();
         Publication C[] = new Publication[n];
         for (int i = 0; i < C.length; i++) 
         {
-            C[i] = new Publication();
-            C[i].Publication();
+        Scanner emp = new Scanner(System.in);
+        int p;
+        String t;
+        int c; 
+        String a;
+
+        System.out.print("Enter the Price of the book: ");
+        p = emp.nextInt();
+        System.out.print("Enter the Title of the book:  ");
+        t = emp.next();
+        System.out.print("Enter the number of copies you want to add in inventory: ");
+        c = emp.nextInt();
+        System.out.print("Enter the author of the book: ");
+        a = emp.next();
+
+        C[i] = new Publication(p,t,c,a);
         }
         int ch;
         do {
