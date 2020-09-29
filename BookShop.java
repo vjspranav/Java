@@ -4,7 +4,8 @@ class Publication {
     // Price of the publication.
     private double price;
 
-    public String getTitle() {
+    public String getTitle() 
+    {
         return this.title;
     }
 
@@ -15,25 +16,35 @@ class Publication {
     public void setPrice(double price) {
         if (price > 0) {
             this.price = price;
-        } else {
+        } 
+        else 
+        {
             System.out.println("Invalid price");
         }
     }
 
-    public double getPrice() {
+    public double getPrice() 
+    {
         return this.price;
     }
 
     public void sell(int qty) {
         System.out.println("Total: Rs." + (qty * price));
     }
+
+    public void display()
+    {
+        System.out.println("Price is: Rs."+price);
+    }
 }
 
-class Magazine extends Publication {
+class Magazine extends Publication 
+{
     // Author of the magazine.
-    private String issue;
+    String issue;
 
-    public String getIssue() {
+    public String getIssue() 
+    {
         return this.issue;
     }
 
@@ -42,11 +53,13 @@ class Magazine extends Publication {
     }
 }
 
-class Book extends Publication {
+class Book extends Publication 
+{
     // Author of the book.
-    private String author;
+    String author;
 
-    public String getAuthor() {
+    public String getAuthor() 
+    {
         return this.author;
     }
 
@@ -60,14 +73,20 @@ public class BookShop {
         Book book = new Book();
         book.setTitle("Hamlet");
         book.setAuthor("William Shakespeare");
-        book.setPrice(5.95);
-
+        book.setPrice(500);
+        System.out.println("Title of the book is:- "+book.getTitle());
+        System.out.println("Author of the book is:- " +book.getAuthor());
+        book.display();
+    
         Magazine magazine = new Magazine();
         magazine.setTitle("TIME");
         magazine.setIssue("Feb. 2, 2015");
-        magazine.setPrice(0.58);
+        magazine.setPrice(60);
+        System.out.println("Title of the magazine is:- "+magazine.getTitle());
+        System.out.println("Magazine issue is:- " +magazine.getIssue());
+        magazine.display();
 
-        book.sell(0);
-        magazine.sell(1);
+        book.sell(20);
+        magazine.sell(13);
     }
 }
