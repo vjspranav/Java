@@ -11,7 +11,6 @@ class method
     {
         System.out.println(""+y);
     }
-}
 public static void main(String args[]) 
     {
       method obj = new method();

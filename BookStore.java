@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Publication
+class Publications
 {
     int price;  
     String title; 
@@ -8,11 +8,11 @@ class Publication
     
     Scanner KB = new Scanner(System.in);
 
-    Publication()
+    Publications()
     {
     }
     
-    Publication(int p, String t, int c, String a)
+    Publications(int p, String t, int c, String a)
     {   
         price = p;
         title = t;
@@ -65,7 +65,7 @@ public class BookStore {
         //create initial inventory
         System.out.print("How Many books you want to add to inventory: ");
         int n = KB.nextInt();
-        Publication C[] = new Publication[n];
+        Publications C[] = new Publications[n];
         for (int i = 0; i < C.length; i++) 
         {
         Scanner emp = new Scanner(System.in);
@@ -83,7 +83,7 @@ public class BookStore {
         System.out.print("Enter the author of the book: ");
         a = emp.next();
 
-        C[i] = new Publication(p,t,c,a);
+        C[i] = new Publications(p,t,c,a);
         }
         int ch;
         do {
